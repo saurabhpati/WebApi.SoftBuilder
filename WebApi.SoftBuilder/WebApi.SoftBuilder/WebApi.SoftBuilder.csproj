@@ -181,6 +181,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HomePageDataService.cs" />
+    <Compile Include="Models\Base\ClientModelBase.cs" />
+    <Compile Include="Models\Home\AboutModel.cs" />
+    <Compile Include="Models\Shared\DisplayDataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,7 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
