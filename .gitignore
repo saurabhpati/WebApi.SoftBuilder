@@ -1,0 +1,5 @@
+/WebApi.SoftBuilder/packages/**
+/WebApi.SoftBuilder/WebApi.SoftBuilder/bin/**
+/WebApi.SoftBuilder/WebApi.SoftBuilder/obj/**
+/WebApi.SoftBuilder/WebApi.SoftBuilder.Tests/bin/**
+/WebApi.SoftBuilder/WebApi.SoftBuilder.Tests/obj/**
