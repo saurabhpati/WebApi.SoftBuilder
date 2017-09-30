@@ -11,6 +11,8 @@ namespace WebApi.SoftBuilder
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+            // CORS is to remove the 'No-Access-Control-Origin' Header present issue.
             var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
             config.Routes.MapHttpRoute(
