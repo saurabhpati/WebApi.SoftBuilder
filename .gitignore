@@ -2,5 +2,9 @@
 /WebApi.SoftBuilder/.vs/**
 /WebApi.SoftBuilder/WebApi.SoftBuilder/bin/**
 /WebApi.SoftBuilder/WebApi.SoftBuilder/obj/**
+/WebApi.SoftBuilder/WebApi.SoftBuilder.Implementation/WebApi.SoftBuilder.Implementation/bin/**
+/WebApi.SoftBuilder/WebApi.SoftBuilder.Implementation/WebApi.SoftBuilder.Implementation/obj/**
+/WebApi.SoftBuilder/WebApi.SoftBuilder.Shared/WebApi.SoftBuilder.Shared/bin/**
+/WebApi.SoftBuilder/WebApi.SoftBuilder.Shared/WebApi.SoftBuilder.Shared/obj/**
 /WebApi.SoftBuilder/WebApi.SoftBuilder.Tests/bin/**
 /WebApi.SoftBuilder/WebApi.SoftBuilder.Tests/obj/**

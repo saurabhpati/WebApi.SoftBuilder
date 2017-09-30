@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
-using WebApi.SoftBuilder.Models.Home;
-using WebApi.SoftBuilder.Models.Shared;
-using WebApi.SoftBuilder.Models.Shared.Form;
+using WebApi.SoftBuilder.Implementation.Entity.Home;
+using WebApi.SoftBuilder.Implementation.Entity.Shared;
+using WebApi.SoftBuilder.Implementation.Entity.Shared.Form;
+using WebApi.SoftBuilder.Shared.Model;
+using WebApi.SoftBuilder.Shared.Service;
 
-namespace WebApi.SoftBuilder
+namespace WebApi.SoftBuilder.Implementation.Service
 {
     /// <summary>
     /// The service class that gets the data for the home page.
     /// </summary>
-    public class HomePageDataService
+    public class HomePageDataService : IHomePageDataService
     {
         #region Public Methods
 
@@ -16,21 +18,21 @@ namespace WebApi.SoftBuilder
         /// Gets the data for the about section in the home page.
         /// </summary>
         /// <returns>about model containing the data for the about section in the home page.</returns>
-        public AboutModel GetAboutData()
+        public IClientModel GetAboutData()
         {
-            return new AboutModel()
+            return new AboutEntity()
             {
                 Id = "about",
                 Name = "About",
-                DisplayDataList = new List<DisplayDataModel>()
+                DisplayDataList = new List<DisplayDataEntity>()
                 {
-                    new DisplayDataModel()
+                    new DisplayDataEntity()
                     {
                         Class = "col-lg-4 ml-auto",
                         Data = @"Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source
                                 files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization."
                     },
-                    new DisplayDataModel()
+                    new DisplayDataEntity()
                     {
                         Class = "col-lg-4 mr-auto",
                         Data = @"Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic\
@@ -44,18 +46,18 @@ namespace WebApi.SoftBuilder
         /// Gets the data for the contact section in the home page.
         /// </summary>
         /// <returns>contact model containing the data for the contact section in the home page.</returns>
-        public ContactModel GetContactData()
+        public IClientModel GetContactData()
         {
-            return new ContactModel()
+            return new ContactEntity()
             {
                 Id = "contact",
                 Name = "Contact Me",
-                ContactForm = new FormModel()
+                ContactForm = new FormEntity()
                 {
                     Id = "contactForm",
-                    Fields = new List<FieldModel>()
+                    Fields = new List<FieldEntity>()
                     {
-                        new FieldModel()
+                        new FieldEntity()
                         {
                             Id = "name",
                             Name = "Name",
@@ -65,7 +67,7 @@ namespace WebApi.SoftBuilder
                             IsRequired = true,
                             ValidationMessage = "Please enter your name."
                         },
-                        new FieldModel()
+                        new FieldEntity()
                         {
                             Id = "email",
                             Name = "Email Address",
@@ -75,7 +77,7 @@ namespace WebApi.SoftBuilder
                             IsRequired = true,
                             ValidationMessage = "Please enter your email address."
                         },
-                        new FieldModel()
+                        new FieldEntity()
                         {
                             Id = "phone",
                             Name = "Phone Number",
@@ -85,7 +87,7 @@ namespace WebApi.SoftBuilder
                             IsRequired = true,
                             ValidationMessage = "Please enter your phone number."
                         },
-                        new FieldModel()
+                        new FieldEntity()
                         {
                             Id = "message",
                             Name = "Message",
@@ -94,9 +96,9 @@ namespace WebApi.SoftBuilder
                             PlaceHolder = "Message",
                             IsRequired = true,
                             ValidationMessage = "Please enter a message.",
-                            FieldMetaList = new List<FormMetaModel>()
+                            FieldMetaList = new List<FormMetaEntity>()
                             {
-                                new FormMetaModel()
+                                new FormMetaEntity()
                                 {
                                     Type = "row",
                                     Value = "5"
