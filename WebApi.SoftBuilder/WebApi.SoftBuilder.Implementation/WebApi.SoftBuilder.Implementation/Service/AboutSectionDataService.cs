@@ -7,7 +7,7 @@ namespace WebApi.SoftBuilder.Implementation.Service
     /// <summary>
     /// The service class that gets the data for the home page.
     /// </summary>
-    public class AboutSectionDataService<T> : HomePageDataServiceBase<T> where T : AboutEntity
+    public class AboutSectionDataService<T> : HomePageDataServiceBase<T> where T : AboutEntity, new()
     {
         #region Public Methods
 
@@ -17,7 +17,7 @@ namespace WebApi.SoftBuilder.Implementation.Service
         /// <returns>about model containing the data for the about section in the home page.</returns>
         public override T GetSectionData()
         {
-            return new AboutEntity()
+            return new T()
             {
                 Id = "about",
                 Name = "About",
@@ -36,7 +36,7 @@ namespace WebApi.SoftBuilder.Implementation.Service
                                 artist looking to share your projects, this template is the perfect starting point!"
                     }
                 }
-            } as T;
+            };
 
             #endregion
 

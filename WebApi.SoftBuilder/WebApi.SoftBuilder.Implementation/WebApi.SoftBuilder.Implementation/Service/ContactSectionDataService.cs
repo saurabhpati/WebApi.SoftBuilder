@@ -4,7 +4,7 @@ using WebApi.SoftBuilder.Implementation.Entity.Shared.Form;
 
 namespace WebApi.SoftBuilder.Implementation.Service
 {
-    public class ContactSectionDataService<T> : HomePageDataServiceBase<T> where T : ContactEntity
+    public class ContactSectionDataService<T> : HomePageDataServiceBase<T> where T : ContactEntity, new()
     {
         /// <summary>
         /// Gets the data for the contact section in the home page.
@@ -12,7 +12,7 @@ namespace WebApi.SoftBuilder.Implementation.Service
         /// <returns>contact model containing the data for the contact section in the home page.</returns>
         public override T GetSectionData()
         {
-            return new ContactEntity()
+            return new T()
             {
                 Id = "contact",
                 Name = "Contact Me",
@@ -71,7 +71,7 @@ namespace WebApi.SoftBuilder.Implementation.Service
                         }
                     }
                 }
-            } as T;
+            };
         }
     }
 }
