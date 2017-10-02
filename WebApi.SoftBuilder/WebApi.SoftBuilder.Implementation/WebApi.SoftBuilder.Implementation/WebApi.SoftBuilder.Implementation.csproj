@@ -51,7 +51,9 @@
     <Compile Include="Entity\Shared\Form\FormMetaEntity.cs" />
     <Compile Include="Model\ClientModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\HomePageDataService.cs" />
+    <Compile Include="Service\AboutSectionDataService.cs" />
+    <Compile Include="Service\ContactSectionDataService.cs" />
+    <Compile Include="Service\HomePageDataServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -62,6 +64,8 @@
       <Name>WebApi.SoftBuilder.Shared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Factory\ServiceFactory\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using WebApi.SoftBuilder.Implementation.Service;
 using WebApi.SoftBuilder.Models.Home;
-using WebApi.SoftBuilder.Shared.Model;
 using WebApi.SoftBuilder.Shared.Service;
 
 namespace WebApi.SoftBuilder.Controllers
@@ -14,7 +13,8 @@ namespace WebApi.SoftBuilder.Controllers
     {
         #region Private Fields
 
-        private IHomePageDataService dataService;
+        private IHomePageDataService<AboutModel> aboutSectionDataService;
+        private IHomePageDataService<ContactModel> contactSectionDataService;
 
         #endregion
 
@@ -25,7 +25,8 @@ namespace WebApi.SoftBuilder.Controllers
         /// </summary>
         public HomeController()
         {
-            this.dataService = new HomePageDataService();
+            this.aboutSectionDataService = new AboutSectionDataService<AboutModel>();
+            this.contactSectionDataService = new ContactSectionDataService<ContactModel>();
         }
 
         #endregion
@@ -38,9 +39,9 @@ namespace WebApi.SoftBuilder.Controllers
         /// <returns>The Json converted about model</returns>
         [HttpGet]
         [Route("about")]
-        public IClientModel About()
+        public AboutModel About()
         {
-            return this.dataService.GetAboutData();
+            return this.aboutSectionDataService.GetSectionData();
         }
 
         /// <summary>
@@ -49,9 +50,9 @@ namespace WebApi.SoftBuilder.Controllers
         /// <returns>The Json converted contact model</returns>
         [HttpGet]
         [Route("contact")]
-        public IClientModel Contact()
+        public ContactModel Contact()
         {
-            return this.dataService.GetContactData();
+            return this.contactSectionDataService.GetSectionData();
         }
 
         #endregion
