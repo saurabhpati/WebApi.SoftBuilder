@@ -1,6 +1,9 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
+using WebApi.SoftBuilder.Implementation.Factory.ServiceFactory;
 using WebApi.SoftBuilder.Implementation.Service;
 using WebApi.SoftBuilder.Models.Home;
+using WebApi.SoftBuilder.Shared.Factory.ServiceFactory;
 using WebApi.SoftBuilder.Shared.Service;
 
 namespace WebApi.SoftBuilder.Controllers
@@ -15,6 +18,9 @@ namespace WebApi.SoftBuilder.Controllers
 
         private IHomePageDataService<AboutModel> aboutSectionDataService;
         private IHomePageDataService<ContactModel> contactSectionDataService;
+        private IHomePageDataServiceFactory<AboutSectionDataService<AboutModel>, AboutModel> aboutSectionDataServiceFactory;
+        private IHomePageDataServiceFactory<ContactSectionDataService<ContactModel>, ContactModel> contactSectionDataServiceFactory;
+
 
         #endregion
 
@@ -25,8 +31,20 @@ namespace WebApi.SoftBuilder.Controllers
         /// </summary>
         public HomeController()
         {
-            this.aboutSectionDataService = new AboutSectionDataService<AboutModel>();
-            this.contactSectionDataService = new ContactSectionDataService<ContactModel>();
+            this.aboutSectionDataServiceFactory = new HomePageDataServiceFactory<AboutSectionDataService<AboutModel>, AboutModel>();
+            this.contactSectionDataServiceFactory = new HomePageDataServiceFactory<ContactSectionDataService<ContactModel>, ContactModel>();
+            this.aboutSectionDataService = this.aboutSectionDataServiceFactory.GetService();
+            this.contactSectionDataService = this.contactSectionDataServiceFactory.GetService();
+
+            if (this.aboutSectionDataService == null)
+            {
+                throw new NullReferenceException(nameof(this.aboutSectionDataService));
+            }
+
+            if (this.contactSectionDataService == null)
+            {
+                throw new NullReferenceException(nameof(this.contactSectionDataService));
+            }
         }
 
         #endregion

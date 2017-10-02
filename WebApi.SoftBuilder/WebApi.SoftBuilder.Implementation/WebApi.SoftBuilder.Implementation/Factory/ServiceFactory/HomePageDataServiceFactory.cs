@@ -6,5 +6,9 @@ namespace WebApi.SoftBuilder.Implementation.Factory.ServiceFactory
 {
     public class HomePageDataServiceFactory<T, U> : IHomePageDataServiceFactory<T, U> where T : HomePageDataServiceBase<U>, new() where U : ClientModelBase
     {
+        public T GetService()
+        {
+            return new T();
+        }
     }
 }
