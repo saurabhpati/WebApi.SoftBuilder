@@ -7,7 +7,7 @@ namespace WebApi.SoftBuilder.Implementation.Entity.Shared.Form
     /// <summary>
     /// The shared model data container for a form in the application.
     /// </summary>
-    public class FormEntity : ClientModelBase
+    public class FormEntity : ClientModelBase, IFormEntity
     {
         /// <summary>
         /// Gets or sets the list of fields in a form

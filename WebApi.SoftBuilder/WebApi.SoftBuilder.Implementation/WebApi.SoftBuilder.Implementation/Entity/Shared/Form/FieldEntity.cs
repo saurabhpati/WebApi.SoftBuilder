@@ -7,7 +7,7 @@ namespace WebApi.SoftBuilder.Implementation.Entity.Shared.Form
     /// <summary>
     /// The shared model container for a particular field in a form in the application.
     /// </summary>
-    public class FieldEntity : ClientModelBase
+    public class FieldEntity : ClientModelBase, IFormEntity
     {
         /// <summary>
         /// Gets or sets the field type of the field. e.g. 'input'/'textarea'.

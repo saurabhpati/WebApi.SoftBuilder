@@ -6,7 +6,7 @@ namespace WebApi.SoftBuilder.Implementation.Entity.Shared.Form
     /// <summary>
     /// The shared data container for other meta data of the form
     /// </summary>
-    public class FormMetaEntity : ClientModelBase
+    public class FormMetaEntity : ClientModelBase, IFormEntity
     {
         /// <summary>
         /// Gets or sets the type of the meta deta

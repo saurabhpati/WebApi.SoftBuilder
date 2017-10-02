@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factory\ModelFactory\IEntityFactory.cs" />
     <Compile Include="Factory\ServiceFactory\IHomePageDataServiceFactory.cs" />
     <Compile Include="Factory\ServiceFactory\IPageDataServiceFactory.cs" />
     <Compile Include="Model\IClientModel.cs" />
@@ -47,8 +48,6 @@
     <Compile Include="Service\IHomePageDataService.cs" />
     <Compile Include="Service\IPageDataService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Factory\ModelFactory\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,6 +8,11 @@ namespace WebApi.SoftBuilder.Implementation.Model
     /// </summary>
     public class ClientModelBase : IClientModel
     {
+        public ClientModelBase()
+        {
+
+        }
+
         /// <summary>
         /// Gets or sets the id for all the models to be used by client models.
         /// </summary>
