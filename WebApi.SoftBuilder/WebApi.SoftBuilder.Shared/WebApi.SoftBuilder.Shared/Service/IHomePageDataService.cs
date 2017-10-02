@@ -5,7 +5,7 @@ namespace WebApi.SoftBuilder.Shared.Service
     /// <summary>
     /// Contract for home page data service.
     /// </summary>
-    public interface IHomePageDataService
+    public interface IHomePageDataService : IPageDataService
     {
         /// <summary>
         /// Gets the about data for the about section for the home page.
