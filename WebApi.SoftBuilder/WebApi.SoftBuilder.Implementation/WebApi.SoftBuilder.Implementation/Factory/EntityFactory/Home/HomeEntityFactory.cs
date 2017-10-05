@@ -4,12 +4,12 @@ namespace WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Home
 {
     public class HomeEntityFactory : IHomeEntityFactory
     {
-        public IHomeEntity GetAboutEntity()
+        public HomeEntity GetAboutEntity()
         {
             return new AboutEntity();
         }
 
-        public IHomeEntity GetContactEntity()
+        public HomeEntity GetContactEntity()
         {
             return new ContactEntity();
         }

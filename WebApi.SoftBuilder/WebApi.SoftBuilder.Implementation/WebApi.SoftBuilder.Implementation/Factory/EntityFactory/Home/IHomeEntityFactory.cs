@@ -3,10 +3,10 @@ using WebApi.SoftBuilder.Shared.Factory.ModelFactory;
 
 namespace WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Home
 {
-    public interface IHomeEntityFactory : IEntityFactory<IHomeEntity>
+    public interface IHomeEntityFactory : IEntityFactory<HomeEntity>
     {
-        IHomeEntity GetAboutEntity();
+        HomeEntity GetAboutEntity();
 
-        IHomeEntity GetContactEntity();
+        HomeEntity GetContactEntity();
     }
 }

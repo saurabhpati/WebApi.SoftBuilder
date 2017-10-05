@@ -3,13 +3,14 @@ using WebApi.SoftBuilder.Implementation.Entity.Home;
 using WebApi.SoftBuilder.Implementation.Entity.Shared;
 using WebApi.SoftBuilder.Implementation.Factory.EntityFactory;
 using WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Home;
+using WebApi.SoftBuilder.Shared.Service;
 
 namespace WebApi.SoftBuilder.Implementation.Service
 {
     /// <summary>
     /// The service class that gets the data for the home page.
     /// </summary>
-    public class AboutSectionDataService<T> : HomePageDataServiceBase<T> where T : AboutEntity, new()
+    public class AboutSectionDataService<T> : IHomePageDataService<T> where T : AboutEntity, new()
     {
         private DisplayDataEntityFactory displayDataEntityFactory;
         private IHomeEntityFactory homeEntityFactory;
@@ -26,7 +27,7 @@ namespace WebApi.SoftBuilder.Implementation.Service
         /// Gets the data for the about section in the home page.
         /// </summary>
         /// <returns>about model containing the data for the about section in the home page.</returns>
-        public override T GetSectionData()
+        public T GetSectionData()
         {
             T aboutEntity = this.homeEntityFactory.GetAboutEntity() as T;
             aboutEntity.Id = "about";

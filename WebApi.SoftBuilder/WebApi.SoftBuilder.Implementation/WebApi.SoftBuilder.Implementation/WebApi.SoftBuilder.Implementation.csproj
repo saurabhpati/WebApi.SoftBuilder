@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="Entity\Home\AboutEntity.cs" />
     <Compile Include="Entity\Home\ContactEntity.cs" />
-    <Compile Include="Entity\Home\IHomeEntity.cs" />
+    <Compile Include="Entity\Home\HomeEntity.cs" />
     <Compile Include="Entity\Shared\DisplayDataEntity.cs" />
     <Compile Include="Entity\Shared\Form\FieldEntity.cs" />
     <Compile Include="Entity\Shared\Form\FormEntity.cs" />
@@ -62,7 +62,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AboutSectionDataService.cs" />
     <Compile Include="Service\ContactSectionDataService.cs" />
-    <Compile Include="Service\HomePageDataServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

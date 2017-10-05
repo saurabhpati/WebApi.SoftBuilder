@@ -3,10 +3,11 @@ using WebApi.SoftBuilder.Implementation.Entity.Home;
 using WebApi.SoftBuilder.Implementation.Entity.Shared.Form;
 using WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Home;
 using WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Shared.Form;
+using WebApi.SoftBuilder.Shared.Service;
 
 namespace WebApi.SoftBuilder.Implementation.Service
 {
-    public class ContactSectionDataService<T> : HomePageDataServiceBase<T> where T : ContactEntity, new()
+    public class ContactSectionDataService<T> : IHomePageDataService<T> where T : ContactEntity, new()
     {
         private IHomeEntityFactory homeEntityFactory;
         private IFormEntityFactory formEntityFactory;
@@ -21,7 +22,7 @@ namespace WebApi.SoftBuilder.Implementation.Service
         /// Gets the data for the contact section in the home page.
         /// </summary>
         /// <returns>contact model containing the data for the contact section in the home page.</returns>
-        public override T GetSectionData()
+        public T GetSectionData()
         {
             T contactEntity = this.homeEntityFactory.GetContactEntity() as T;
             contactEntity.Id = "contact";
