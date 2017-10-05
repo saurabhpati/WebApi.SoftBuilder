@@ -7,6 +7,8 @@ namespace WebApi.SoftBuilder.Shared.Service
     /// </summary>
     public interface IHomePageDataService<T> : IPageDataService<T> where T : IClientModel
     {
-        T GetSectionData();
+        T GetAboutSectionData();
+
+        T GetContactSectionData();
     }
 }

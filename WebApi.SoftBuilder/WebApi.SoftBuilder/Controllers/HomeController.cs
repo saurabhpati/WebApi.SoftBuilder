@@ -16,11 +16,8 @@ namespace WebApi.SoftBuilder.Controllers
     {
         #region Private Fields
 
-        private IHomePageDataService<AboutEntity> aboutSectionDataService;
-        private IHomePageDataService<ContactEntity> contactSectionDataService;
-        private IHomePageDataServiceFactory<AboutSectionDataService<AboutEntity>, AboutEntity> aboutSectionDataServiceFactory;
-        private IHomePageDataServiceFactory<ContactSectionDataService<ContactEntity>, ContactEntity> contactSectionDataServiceFactory;
-
+        private IHomePageDataService<HomeEntity> homePageDataService;
+        private IHomePageDataServiceFactory<HomePageDataService, HomeEntity> homePageDataServiceFactory;
 
         #endregion
 
@@ -31,19 +28,17 @@ namespace WebApi.SoftBuilder.Controllers
         /// </summary>
         public HomeController()
         {
-            this.aboutSectionDataServiceFactory = new HomePageDataServiceFactory<AboutSectionDataService<AboutEntity>, AboutEntity>();
-            this.contactSectionDataServiceFactory = new HomePageDataServiceFactory<ContactSectionDataService<ContactEntity>, ContactEntity>();
-            this.aboutSectionDataService = this.aboutSectionDataServiceFactory.GetService();
-            this.contactSectionDataService = this.contactSectionDataServiceFactory.GetService();
+            this.homePageDataServiceFactory = new HomePageDataServiceFactory<HomePageDataService, HomeEntity>();
+            this.homePageDataService = this.homePageDataServiceFactory.GetService();
 
-            if (this.aboutSectionDataService == null)
+            if (this.homePageDataService == null)
             {
-                throw new NullReferenceException(nameof(this.aboutSectionDataService));
+                throw new NullReferenceException(nameof(this.homePageDataService));
             }
 
-            if (this.contactSectionDataService == null)
+            if (this.homePageDataService == null)
             {
-                throw new NullReferenceException(nameof(this.contactSectionDataService));
+                throw new NullReferenceException(nameof(this.homePageDataService));
             }
         }
 
@@ -59,7 +54,7 @@ namespace WebApi.SoftBuilder.Controllers
         [Route("about")]
         public AboutEntity About()
         {
-            return this.aboutSectionDataService.GetSectionData();
+            return this.homePageDataService.GetAboutSectionData() as AboutEntity;
         }
 
         /// <summary>
@@ -70,7 +65,7 @@ namespace WebApi.SoftBuilder.Controllers
         [Route("contact")]
         public ContactEntity Contact()
         {
-            return this.contactSectionDataService.GetSectionData();
+            return this.homePageDataService.GetContactSectionData() as ContactEntity;
         }
 
         #endregion
