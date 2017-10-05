@@ -7,7 +7,7 @@ namespace WebApi.SoftBuilder.Implementation.Entity.Home
     /// <summary>
     /// The model data container for the contact section of the home page.
     /// </summary>
-    public class ContactEntity : ClientModelBase
+    public class ContactEntity : ClientModelBase, IHomeEntity
     {
         /// <summary>
         /// Gets or sets the contact form.

@@ -45,14 +45,17 @@
   <ItemGroup>
     <Compile Include="Entity\Home\AboutEntity.cs" />
     <Compile Include="Entity\Home\ContactEntity.cs" />
+    <Compile Include="Entity\Home\IHomeEntity.cs" />
     <Compile Include="Entity\Shared\DisplayDataEntity.cs" />
     <Compile Include="Entity\Shared\Form\FieldEntity.cs" />
     <Compile Include="Entity\Shared\Form\FormEntity.cs" />
     <Compile Include="Entity\Shared\Form\FormMetaEntity.cs" />
     <Compile Include="Entity\Shared\Form\IFormEntity.cs" />
+    <Compile Include="Factory\EntityFactory\DisplayDataEntityFactory.cs" />
     <Compile Include="Factory\EntityFactory\EntityFactory.cs" />
     <Compile Include="Factory\EntityFactory\Home\HomeEntityFactory.cs" />
-    <Compile Include="Factory\EntityFactory\Shared\Form\CommonFormEntityFactory.cs" />
+    <Compile Include="Factory\EntityFactory\Home\IHomeEntityFactory.cs" />
+    <Compile Include="Factory\EntityFactory\Shared\Form\FormEntityFactory.cs" />
     <Compile Include="Factory\EntityFactory\Shared\Form\IFormEntityFactory.cs" />
     <Compile Include="Factory\ServiceFactory\HomePageDataServiceFactory.cs" />
     <Compile Include="Model\ClientModelBase.cs" />

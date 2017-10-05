@@ -11,13 +11,13 @@ namespace WebApi.SoftBuilder.Implementation.Service
     /// </summary>
     public class AboutSectionDataService<T> : HomePageDataServiceBase<T> where T : AboutEntity, new()
     {
-        private EntityFactory<DisplayDataEntity> displayDataEntityFactory;
-        private HomeEntityFactory<T> homeEntityFactory;
+        private DisplayDataEntityFactory displayDataEntityFactory;
+        private IHomeEntityFactory homeEntityFactory;
 
         public AboutSectionDataService()
         {
-            this.displayDataEntityFactory = new EntityFactory<DisplayDataEntity>();
-            this.homeEntityFactory = new HomeEntityFactory<T>();
+            this.displayDataEntityFactory = new DisplayDataEntityFactory();
+            this.homeEntityFactory = new HomeEntityFactory();
         }
 
         #region Public Methods
@@ -28,15 +28,15 @@ namespace WebApi.SoftBuilder.Implementation.Service
         /// <returns>about model containing the data for the about section in the home page.</returns>
         public override T GetSectionData()
         {
-            T aboutEntity = this.homeEntityFactory.GetEntity();
+            T aboutEntity = this.homeEntityFactory.GetAboutEntity() as T;
             aboutEntity.Id = "about";
             aboutEntity.Name = "About";
             List<DisplayDataEntity> displayDataList = new List<DisplayDataEntity>();
-            DisplayDataEntity leftSideDisplayEntity = displayDataEntityFactory.GetEntity();
+            DisplayDataEntity leftSideDisplayEntity = displayDataEntityFactory.GetEntity() as DisplayDataEntity;
             leftSideDisplayEntity.Class = "col-lg-4 ml-auto";
             leftSideDisplayEntity.Data = @"Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source
                                           files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.";
-            DisplayDataEntity rightSideDataEntity = displayDataEntityFactory.GetEntity();
+            DisplayDataEntity rightSideDataEntity = displayDataEntityFactory.GetEntity() as DisplayDataEntity;
             rightSideDataEntity.Class = "col-lg-4 mr-auto";
             rightSideDataEntity.Data = @"Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic\
                                         artist looking to share your projects, this template is the perfect starting point!";

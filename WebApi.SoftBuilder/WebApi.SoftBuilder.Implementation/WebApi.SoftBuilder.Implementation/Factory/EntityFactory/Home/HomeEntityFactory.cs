@@ -1,13 +1,17 @@
-﻿using WebApi.SoftBuilder.Implementation.Model;
-using WebApi.SoftBuilder.Shared.Factory.ModelFactory;
+﻿using WebApi.SoftBuilder.Implementation.Entity.Home;
 
 namespace WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Home
 {
-    public class HomeEntityFactory<T> : IEntityFactory<T> where T : ClientModelBase, new()
+    public class HomeEntityFactory : IHomeEntityFactory
     {
-        public virtual T GetEntity()
+        public IHomeEntity GetAboutEntity()
         {
-            return new T();
+            return new AboutEntity();
+        }
+
+        public IHomeEntity GetContactEntity()
+        {
+            return new ContactEntity();
         }
     }
 }

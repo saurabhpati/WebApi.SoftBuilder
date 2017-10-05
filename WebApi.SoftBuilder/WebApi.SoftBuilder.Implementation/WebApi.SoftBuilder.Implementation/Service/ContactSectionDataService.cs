@@ -8,17 +8,13 @@ namespace WebApi.SoftBuilder.Implementation.Service
 {
     public class ContactSectionDataService<T> : HomePageDataServiceBase<T> where T : ContactEntity, new()
     {
-        private HomeEntityFactory<T> homeEntityFactory;
-        private IFormEntityFactory<FormEntity> formEntityFactory;
-        private IFormEntityFactory<FieldEntity> fieldFormEntityFactory;
-        private IFormEntityFactory<FormMetaEntity> formMetaEntityFactory;
+        private IHomeEntityFactory homeEntityFactory;
+        private IFormEntityFactory formEntityFactory;
 
         public ContactSectionDataService()
         {
-            this.homeEntityFactory = new HomeEntityFactory<T>();
-            this.formEntityFactory = new CommonFormEntityFactory<FormEntity>();
-            this.fieldFormEntityFactory = new CommonFormEntityFactory<FieldEntity>();
-            this.formMetaEntityFactory = new CommonFormEntityFactory<FormMetaEntity>();
+            this.homeEntityFactory = new HomeEntityFactory();
+            this.formEntityFactory = new FormEntityFactory();
         }
 
         /// <summary>
@@ -27,11 +23,11 @@ namespace WebApi.SoftBuilder.Implementation.Service
         /// <returns>contact model containing the data for the contact section in the home page.</returns>
         public override T GetSectionData()
         {
-            T contactEntity = this.homeEntityFactory.GetEntity();
+            T contactEntity = this.homeEntityFactory.GetContactEntity() as T;
             contactEntity.Id = "contact";
             contactEntity.Name = "Contact Me";
             List<FieldEntity> fields = new List<FieldEntity>();
-            FieldEntity nameField = this.fieldFormEntityFactory.GetEntity();
+            FieldEntity nameField = this.formEntityFactory.GetFieldEntity() as FieldEntity;
             nameField.Id = "name";
             nameField.Name = "Name";
             nameField.InputType = "text";
@@ -39,7 +35,7 @@ namespace WebApi.SoftBuilder.Implementation.Service
             nameField.PlaceHolder = "Name";
             nameField.IsRequired = true;
             nameField.ValidationMessage = "Please enter your name.";
-            FieldEntity emailField = this.fieldFormEntityFactory.GetEntity();
+            FieldEntity emailField = this.formEntityFactory.GetFieldEntity() as FieldEntity;
             emailField.Id = "email";
             emailField.Name = "Email Address";
             emailField.FieldType = "input";
@@ -47,7 +43,7 @@ namespace WebApi.SoftBuilder.Implementation.Service
             emailField.PlaceHolder = "Email Address";
             emailField.IsRequired = true;
             emailField.ValidationMessage = "Please enter your email address.";
-            FieldEntity phoneField = this.fieldFormEntityFactory.GetEntity();
+            FieldEntity phoneField = this.formEntityFactory.GetFieldEntity() as FieldEntity;
             phoneField.Id = "phone";
             phoneField.Name = "Phone Number";
             phoneField.FieldType = "input";
@@ -55,7 +51,7 @@ namespace WebApi.SoftBuilder.Implementation.Service
             phoneField.PlaceHolder = "Phone Number";
             phoneField.IsRequired = true;
             phoneField.ValidationMessage = "Please enter your phone number.";
-            FieldEntity messageField = this.fieldFormEntityFactory.GetEntity();
+            FieldEntity messageField = this.formEntityFactory.GetFieldEntity() as FieldEntity;
             messageField.Id = "message";
             messageField.Name = "Message";
             messageField.FieldType = "textarea";
@@ -67,12 +63,12 @@ namespace WebApi.SoftBuilder.Implementation.Service
             fields.Add(phoneField);
             fields.Add(messageField);
             List<FormMetaEntity> formMetas = new List<FormMetaEntity>();
-            FormMetaEntity rowFormMeta = this.formMetaEntityFactory.GetEntity();
+            FormMetaEntity rowFormMeta = this.formEntityFactory.GetFormMetaEntity() as FormMetaEntity;
             rowFormMeta.Type = "row";
             rowFormMeta.Value = "5";
             formMetas.Add(rowFormMeta);
             messageField.FieldMetaList = formMetas;
-            FormEntity contactFormEntity = this.formEntityFactory.GetEntity();
+            FormEntity contactFormEntity = this.formEntityFactory.GetFormEntity() as FormEntity;
             contactFormEntity.Fields = fields;
             contactEntity.ContactForm = contactFormEntity;
             return contactEntity;

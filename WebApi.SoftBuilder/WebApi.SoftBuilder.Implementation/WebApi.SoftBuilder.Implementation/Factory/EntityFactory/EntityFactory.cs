@@ -3,11 +3,8 @@ using WebApi.SoftBuilder.Shared.Factory.ModelFactory;
 
 namespace WebApi.SoftBuilder.Implementation.Factory.EntityFactory
 {
-    public class EntityFactory<T> : IEntityFactory<T> where T : ClientModelBase, new()
+    public abstract class EntityFactory : IEntityFactory<ClientModelBase>
     {
-        public virtual T GetEntity()
-        {
-            return new T();
-        }
+        public abstract ClientModelBase GetEntity();
     }
 }

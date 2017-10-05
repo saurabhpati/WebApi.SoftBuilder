@@ -8,7 +8,7 @@ namespace WebApi.SoftBuilder.Implementation.Entity.Home
     /// <summary>
     /// The entity data container for about section of the home page.
     /// </summary>
-    public class AboutEntity : ClientModelBase
+    public class AboutEntity : ClientModelBase, IHomeEntity
     {
         /// <summary>
         /// Gets or sets the list of data to be displayed by the client.

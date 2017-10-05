@@ -4,6 +4,5 @@ namespace WebApi.SoftBuilder.Shared.Factory.ModelFactory
 {
     public interface IEntityFactory<T> where T : IClientModel
     {
-        T GetEntity();
     }
 }

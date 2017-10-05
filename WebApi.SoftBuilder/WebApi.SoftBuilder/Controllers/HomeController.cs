@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Http;
+using WebApi.SoftBuilder.Implementation.Entity.Home;
 using WebApi.SoftBuilder.Implementation.Factory.ServiceFactory;
 using WebApi.SoftBuilder.Implementation.Service;
-using WebApi.SoftBuilder.Models.Home;
 using WebApi.SoftBuilder.Shared.Factory.ServiceFactory;
 using WebApi.SoftBuilder.Shared.Service;
 
@@ -16,10 +16,10 @@ namespace WebApi.SoftBuilder.Controllers
     {
         #region Private Fields
 
-        private IHomePageDataService<AboutModel> aboutSectionDataService;
-        private IHomePageDataService<ContactModel> contactSectionDataService;
-        private IHomePageDataServiceFactory<AboutSectionDataService<AboutModel>, AboutModel> aboutSectionDataServiceFactory;
-        private IHomePageDataServiceFactory<ContactSectionDataService<ContactModel>, ContactModel> contactSectionDataServiceFactory;
+        private IHomePageDataService<AboutEntity> aboutSectionDataService;
+        private IHomePageDataService<ContactEntity> contactSectionDataService;
+        private IHomePageDataServiceFactory<AboutSectionDataService<AboutEntity>, AboutEntity> aboutSectionDataServiceFactory;
+        private IHomePageDataServiceFactory<ContactSectionDataService<ContactEntity>, ContactEntity> contactSectionDataServiceFactory;
 
 
         #endregion
@@ -31,8 +31,8 @@ namespace WebApi.SoftBuilder.Controllers
         /// </summary>
         public HomeController()
         {
-            this.aboutSectionDataServiceFactory = new HomePageDataServiceFactory<AboutSectionDataService<AboutModel>, AboutModel>();
-            this.contactSectionDataServiceFactory = new HomePageDataServiceFactory<ContactSectionDataService<ContactModel>, ContactModel>();
+            this.aboutSectionDataServiceFactory = new HomePageDataServiceFactory<AboutSectionDataService<AboutEntity>, AboutEntity>();
+            this.contactSectionDataServiceFactory = new HomePageDataServiceFactory<ContactSectionDataService<ContactEntity>, ContactEntity>();
             this.aboutSectionDataService = this.aboutSectionDataServiceFactory.GetService();
             this.contactSectionDataService = this.contactSectionDataServiceFactory.GetService();
 
@@ -57,7 +57,7 @@ namespace WebApi.SoftBuilder.Controllers
         /// <returns>The Json converted about model</returns>
         [HttpGet]
         [Route("about")]
-        public AboutModel About()
+        public AboutEntity About()
         {
             return this.aboutSectionDataService.GetSectionData();
         }
@@ -68,7 +68,7 @@ namespace WebApi.SoftBuilder.Controllers
         /// <returns>The Json converted contact model</returns>
         [HttpGet]
         [Route("contact")]
-        public ContactModel Contact()
+        public ContactEntity Contact()
         {
             return this.contactSectionDataService.GetSectionData();
         }
