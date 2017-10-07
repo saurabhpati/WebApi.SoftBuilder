@@ -9,12 +9,18 @@ using WebApi.SoftBuilder.Shared.Service;
 
 namespace WebApi.SoftBuilder.Implementation.Service
 {
+    /// <summary>
+    /// The service that gives the data related to the home page.
+    /// </summary>
     public class HomePageDataService : IHomePageDataService<HomeEntity>
     {
         private DisplayDataEntityFactory displayDataEntityFactory;
         private IHomeEntityFactory homeEntityFactory;
         private IFormEntityFactory formEntityFactory;
 
+        /// <summary>
+        /// The constructor to initialize the HomePageDataService class.
+        /// </summary>
         public HomePageDataService()
         {
             this.displayDataEntityFactory = new DisplayDataEntityFactory();
