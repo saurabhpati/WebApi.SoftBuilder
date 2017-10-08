@@ -1,4 +1,5 @@
 ﻿using WebApi.SoftBuilder.Implementation.Entity.Shared.Form;
+using WebApi.SoftBuilder.Shared.Model;
 
 namespace WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Shared.Form
 {
@@ -7,6 +8,11 @@ namespace WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Shared.Form
     /// </summary>
     public class FormEntityFactory : IFormEntityFactory
     {
+        public IFormEntity GetEntity()
+        {
+            return new FormEntity();
+        }
+
         /// <summary>
         /// Gets the manufactured field entity.
         /// </summary>

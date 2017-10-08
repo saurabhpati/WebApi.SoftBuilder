@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using WebApi.SoftBuilder.Implementation.Model;
+using WebApi.SoftBuilder.Shared.Model;
 
 namespace WebApi.SoftBuilder.Implementation.Entity.Shared.Form
 {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using WebApi.SoftBuilder.Implementation.Entity.Shared;
+using WebApi.SoftBuilder.Shared.Model;
 
 namespace WebApi.SoftBuilder.Implementation.Entity.Home
 {

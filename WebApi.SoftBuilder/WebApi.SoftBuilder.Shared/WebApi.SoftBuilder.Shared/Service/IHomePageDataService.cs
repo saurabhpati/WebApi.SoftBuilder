@@ -6,7 +6,7 @@ namespace WebApi.SoftBuilder.Shared.Service
     /// The contract that a service has to implement to be a service for all entities related to any entity or content in the home page.
     /// </summary>
     /// <typeparam name="T">The entity, model or content related to the home page.</typeparam>
-    public interface IHomePageDataService<T> : IPageDataService<T> where T : IClientModel
+    public interface IHomePageDataService<T> : IPageDataService<T> where T : HomeEntity
     {
         /// <summary>
         /// Gets the data related to the about section of the home page.

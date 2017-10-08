@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using WebApi.SoftBuilder.Implementation.Entity.Home;
 using WebApi.SoftBuilder.Implementation.Entity.Shared;
 using WebApi.SoftBuilder.Implementation.Entity.Shared.Form;
-using WebApi.SoftBuilder.Implementation.Factory.EntityFactory;
 using WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Home;
 using WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Shared.Form;
+using WebApi.SoftBuilder.Shared.Factory.ModelFactory;
+using WebApi.SoftBuilder.Shared.Model;
 using WebApi.SoftBuilder.Shared.Service;
 
 namespace WebApi.SoftBuilder.Implementation.Service
@@ -14,18 +16,21 @@ namespace WebApi.SoftBuilder.Implementation.Service
     /// </summary>
     public class HomePageDataService : IHomePageDataService<HomeEntity>
     {
-        private DisplayDataEntityFactory displayDataEntityFactory;
+        private IEntityFactory<DisplayDataEntity> displayDataEntityFactory;
         private IHomeEntityFactory homeEntityFactory;
         private IFormEntityFactory formEntityFactory;
 
         /// <summary>
         /// The constructor to initialize the HomePageDataService class.
         /// </summary>
-        public HomePageDataService()
+        public HomePageDataService(
+            IEntityFactory<DisplayDataEntity> displayDataEntityFactory,
+            IHomeEntityFactory homeEntityFactory,
+            IFormEntityFactory formEntityFactory)
         {
-            this.displayDataEntityFactory = new DisplayDataEntityFactory();
-            this.homeEntityFactory = new HomeEntityFactory();
-            this.formEntityFactory = new FormEntityFactory();
+            this.displayDataEntityFactory = displayDataEntityFactory ?? throw new ArgumentNullException(nameof(displayDataEntityFactory));
+            this.homeEntityFactory = homeEntityFactory ?? throw new ArgumentNullException(nameof(homeEntityFactory));
+            this.formEntityFactory = formEntityFactory ?? throw new ArgumentNullException(nameof(formEntityFactory));
         }
 
         /// <summary>

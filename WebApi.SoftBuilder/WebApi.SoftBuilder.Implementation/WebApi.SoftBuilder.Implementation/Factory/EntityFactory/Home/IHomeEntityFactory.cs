@@ -1,5 +1,5 @@
-﻿using WebApi.SoftBuilder.Implementation.Entity.Home;
-using WebApi.SoftBuilder.Shared.Factory.ModelFactory;
+﻿using WebApi.SoftBuilder.Shared.Factory.ModelFactory;
+using WebApi.SoftBuilder.Shared.Model;
 
 namespace WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Home
 {

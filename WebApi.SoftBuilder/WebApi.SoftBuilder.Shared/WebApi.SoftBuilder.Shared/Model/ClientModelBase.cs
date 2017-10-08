@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
-using WebApi.SoftBuilder.Shared.Model;
 
-namespace WebApi.SoftBuilder.Implementation.Model
+namespace WebApi.SoftBuilder.Shared.Model
 {
     /// <summary>
     /// The base model for any of the client model.

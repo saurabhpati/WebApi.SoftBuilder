@@ -8,5 +8,6 @@ namespace WebApi.SoftBuilder.Shared.Factory.ModelFactory
     /// <typeparam name="T">Any entity, model or content within the application.</typeparam>
     public interface IEntityFactory<T> where T : IClientModel
     {
+        T GetEntity();
     }
 }

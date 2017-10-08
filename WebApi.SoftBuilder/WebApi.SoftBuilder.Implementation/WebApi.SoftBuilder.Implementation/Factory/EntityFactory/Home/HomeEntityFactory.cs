@@ -1,4 +1,5 @@
 ﻿using WebApi.SoftBuilder.Implementation.Entity.Home;
+using WebApi.SoftBuilder.Shared.Model;
 
 namespace WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Home
 {
@@ -23,6 +24,11 @@ namespace WebApi.SoftBuilder.Implementation.Factory.EntityFactory.Home
         public HomeEntity GetContactEntity()
         {
             return new ContactEntity();
+        }
+
+        public HomeEntity GetEntity()
+        {
+            return new HomeEntity();
         }
     }
 }

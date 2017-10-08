@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Http;
 using WebApi.SoftBuilder.Implementation.Entity.Home;
-using WebApi.SoftBuilder.Implementation.Factory.ServiceFactory;
 using WebApi.SoftBuilder.Implementation.Service;
 using WebApi.SoftBuilder.Shared.Factory.ServiceFactory;
+using WebApi.SoftBuilder.Shared.Model;
 using WebApi.SoftBuilder.Shared.Service;
 
 namespace WebApi.SoftBuilder.Controllers
@@ -17,29 +17,23 @@ namespace WebApi.SoftBuilder.Controllers
         #region Private Fields
 
         private IHomePageDataService<HomeEntity> homePageDataService;
-        private IHomePageDataServiceFactory<HomePageDataService, HomeEntity> homePageDataServiceFactory;
 
         #endregion
 
         #region Constructor
 
         /// <summary>
-        /// The constructor to initialize the HomeController class
+        /// The constructor to initialize the HomeController class.
         /// </summary>
-        public HomeController()
+        /// <param name="homePageDataServiceFactory">The service factory that gets the service required to fetch the data for home page.</param>
+        public HomeController(IHomePageDataServiceFactory<HomePageDataService, HomeEntity> homePageDataServiceFactory)
         {
-            this.homePageDataServiceFactory = new HomePageDataServiceFactory<HomePageDataService, HomeEntity>();
-            this.homePageDataService = this.homePageDataServiceFactory.GetService();
-
-            if (this.homePageDataService == null)
+            if (homePageDataServiceFactory == null)
             {
-                throw new NullReferenceException(nameof(this.homePageDataService));
+                throw new ArgumentNullException(nameof(homePageDataServiceFactory));
             }
 
-            if (this.homePageDataService == null)
-            {
-                throw new NullReferenceException(nameof(this.homePageDataService));
-            }
+            this.homePageDataService = homePageDataServiceFactory.GetService() ?? throw new ArgumentNullException(nameof(this.homePageDataService));
         }
 
         #endregion

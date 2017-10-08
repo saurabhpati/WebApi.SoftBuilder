@@ -8,7 +8,7 @@ namespace WebApi.SoftBuilder.Shared.Factory.ServiceFactory
     /// </summary>
     /// <typeparam name="T">The service that gets data related to the home page.</typeparam>
     /// <typeparam name="U">The entity, model or content related to the home page.</typeparam>
-    public interface IHomePageDataServiceFactory<T, U> : IPageDataServiceFactory<T, U> where T : IHomePageDataService<U> where U : IClientModel
+    public interface IHomePageDataServiceFactory<T, U> : IPageDataServiceFactory<T, U> where T : IHomePageDataService<U> where U : HomeEntity
     {
         /// <summary>
         /// Gets the service that is supposed to get the related to the home page.

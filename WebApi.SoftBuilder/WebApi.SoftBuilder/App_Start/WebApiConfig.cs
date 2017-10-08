@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
+using Microsoft.Practices.Unity;
 
 namespace WebApi.SoftBuilder
 {
@@ -20,6 +21,15 @@ namespace WebApi.SoftBuilder
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            #region Unity Registration
+
+            IUnityContainer container = new UnityContainer();
+            WebApi.SoftBuilder.Implementation.ContainerRegistration.RegisterTypes(container);
+            ContainerRegistration.RegisterTypes(container);
+            config.DependencyResolver = new UnityResolver(container);
+
+            #endregion
         }
     }
 }
