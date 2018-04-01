@@ -108,6 +108,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebApi.SoftBuilder.Implementation\WebApi.SoftBuilder.Implementation\WebApi.SoftBuilder.Implementation.csproj">
+      <Project>{EE2DE0EC-388B-4E80-A4BD-116522581EB5}</Project>
+      <Name>WebApi.SoftBuilder.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApi.SoftBuilder.Shared\WebApi.SoftBuilder.Shared\WebApi.SoftBuilder.Shared.csproj">
+      <Project>{B256EFAA-7636-4312-9603-5264FF1FE7F5}</Project>
+      <Name>WebApi.SoftBuilder.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApi.SoftBuilder\WebApi.SoftBuilder.csproj">
       <Project>{0698B7DF-9F46-41DA-95D6-115357D3FCED}</Project>
       <Name>WebApi.SoftBuilder</Name>
